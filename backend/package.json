@@ -9,7 +9,7 @@
         "start:development": "nodemon ./bin/www",
         "start:production": "node ./bin/www",
         "build": "node psql-setup-script.js",
-        "rebuild-db": "rm db/dev.db && npx dotenv sequelize db:migrate && npx dotenv sequelize db:seed:all"
+        "rebuild-db": "rm -rf ./db/dev.db && npx dotenv sequelize db:migrate && npx dotenv sequelize db:seed:all"
     },
     "keywords": [],
     "author": "",
@@ -30,7 +30,7 @@
         "morgan": "^1.10.0",
         "per-env": "^1.0.2",
         "pg": "^8.13.1",
-        "sequelize": "^6.37.5",
+        "sequelize": "^6.37.6",
         "sequelize-cli": "^6.6.2",
         "sqlite": "^5.1.1"
     },
