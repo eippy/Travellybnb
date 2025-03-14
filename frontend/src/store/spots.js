@@ -55,7 +55,7 @@ const initialState = {
 
 const spotsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_ALL_SPOTS:
+        case GET_ALL_SPOTS: {
 
             if (!action.payload) return state;
             
@@ -69,11 +69,13 @@ const spotsReducer = (state = initialState, action) => {
                 allSpots,
                 byId
             };
-        case GET_SPOT_DETAILS:
+        }
+        case GET_SPOT_DETAILS: {
             return {
                 ...state,
                 currentSpot: action.payload
             }
+        }   
         default:
             return state;
     }
