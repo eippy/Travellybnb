@@ -26,7 +26,16 @@ module.exports = {
                     url: 'https://picsum.photos/300/200',
                     preview: false,
                 },
-
+                {
+                    spotId: 1,
+                    url: 'https://picsum.photos/300/200',
+                    preview: false,
+                },
+                {
+                    spotId: 1,
+                    url: 'https://picsum.photos/300/200',
+                    preview: false,
+                },
                 {
                     spotId: 2,
                     url: 'https://picsum.photos/300/200',
