@@ -26,7 +26,7 @@ function SpotsList() {
                             </div>
                             <div>
                                 <div>
-                                    <span>{spot.avgRating.toFixed(1)}</span>
+                                    <span>{parseFloat(spot.avgRating || 0).toFixed(1)}</span>
                                 </div>
                             </div>
                             <div>
