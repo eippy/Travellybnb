@@ -38,7 +38,6 @@ export const spotsThunk = () => async( dispatch)=> {
 };
 
 export const spotDetailsThunk = (spotId) => async dispatch => {
-    console.log('THUNK CALLED WITH SPOT ID:', spotId);
     try {
         const res = await csrfFetch(`/api/spots/${spotId}`);
         if (res.ok) {
@@ -87,26 +86,29 @@ const initialState = {
 const spotsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case GET_ALL_SPOTS:
+        case GET_ALL_SPOTS: {
             const spotsArr = action.payload.Spots
             newState = { ...state }
             newState.allSpots = spotsArr;
             let newByIdGetAllSpots = {};
             for (let spot of spotsArr) {
-              newByIdGetAllSpots[spot.id] = spot
+                newByIdGetAllSpots[spot.id] = spot
             }
             newState.byId = newByIdGetAllSpots
             return newState
-        case GET_SPOT_DETAILS:
+        }
+        case GET_SPOT_DETAILS: {
             newState = { ...state }
             newState.currentSpot = action.payload;
             newState.byId[action.payload.id] = action.payload;
             return newState
-        case CREATE_SPOT: 
+        }
+        case CREATE_SPOT: {
             newState = { ...state }
             newState.allSpots = [...state.allSpots, action.payload]
             newState.byId[action.payload.id] = action.payload
             return newState
+        }
         default:
             return state;
     }

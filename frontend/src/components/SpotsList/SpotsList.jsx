@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { spotsThunk } from '../../store/spots';
 import SpotCard from './SpotCard';
@@ -23,7 +23,7 @@ function SpotsList() {
         }
 
 
-    }, [isLoaded])
+    }, [isLoaded, dispatch])
 
     const gotToSpotDetail = (e, spot) => {
         e.preventDefault();
