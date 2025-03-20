@@ -228,12 +228,10 @@ router.get('/', async (req, res) => {
                 where: {
                     preview: true,
                 },
-                required: false
             },
             {
                 model: Review,
                 attributes: [],
-                required: false
             },
         ],
         group: ['Spot.id'],
@@ -246,7 +244,9 @@ router.get('/', async (req, res) => {
         };
     });
 
-    return res.json(spotsResponse);
+    return res.json({
+        Spots: spotsResponse
+    });
 });
 
 // EDIT A SPOT

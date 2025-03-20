@@ -1,0 +1,50 @@
+.spot-location {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+.spot-images {
+    display: grid;
+
+}
+
+.main-image {
+
+}
+
+
+.additional-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.image-card {
+    height: 195px;
+}
+
+.main-image img,
+.image-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+
+.spot-info {
+    display: grid;
+    gap: 48px;
+    padding-top: 24px;
+    border-top: 1px solid black
+}
+
+.host-info h2 {
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+.description {
+    font-size: 16px;
+   
+}

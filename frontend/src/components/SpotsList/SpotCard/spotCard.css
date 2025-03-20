@@ -1,0 +1,8 @@
+.spotImage-container{
+    margin: 5px;
+}
+.spotImage{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 7px;
+}
