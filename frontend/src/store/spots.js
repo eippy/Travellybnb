@@ -19,7 +19,7 @@ const getSpotDetails = (spot) => ({
 
 export const spotsThunk = () => async (dispatch) => {
     try {
-        const res = await fetch('/api/spots');
+        const res = await csrfFetch('/api/spots');
         if (res.ok) {
             const data = await res.json();
             dispatch(getAllSpots(data));
@@ -33,7 +33,7 @@ export const spotsThunk = () => async (dispatch) => {
 
 export const spotDetailsThunk = (spotId) => async (dispatch) => {
     try {
-        const res = await fetch(`/api/spots/${spotId}`)
+        const res = await csrfFetch(`/api/spots/${spotId}`)
         if (res.ok) {
             const data = await res.json();
             dispatch(getSpotDetails(data))

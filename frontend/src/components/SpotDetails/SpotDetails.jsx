@@ -15,7 +15,7 @@ function SpotDetails() {
     if (!spot) return null;
 
     const reserveClick = () => {
-        console.log('Feature coming soon'); // need to alert them instead of console.log
+        alert('Feature coming soon'); // need to alert them instead of console.log
     };
 
     console.log("spot data", spot)
