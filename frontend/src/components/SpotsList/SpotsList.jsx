@@ -1,42 +1,52 @@
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { spotsThunk } from '../../store/spots';
+import SpotCard from './SpotCard';
+import './SpotsList.css'
 
 function SpotsList() {
     const dispatch = useDispatch();
-    const { allSpots, byId } = useSelector(state => state.spots);
+    const navigate = useNavigate();
 
+    const [isLoaded, setIsLoaded] = useState(false)
+    const spots = useSelector((state) => state.spotsReducer.allSpots)
     useEffect(() => {
-        dispatch(spotsThunk());
-    }, [dispatch]);
+        
+        const getSpots = async () => {
+            await dispatch(spotsThunk());
+            setIsLoaded(true);
+        }
 
+        if (!isLoaded) {
+            getSpots();
+        }
+
+
+    }, [isLoaded])
+
+    const gotToSpotDetail = (e, spot) => {
+        e.preventDefault();
+        navigate(`/spots/${spot.id}`)
+    }
+    
+    if (!isLoaded) {
+        return <div>Loading...</div>
+    }
     return (
         <div>
-            {allSpots.map(spotId => {
-                const spot = byId[spotId];
-                return (
-                    <Link to={`/spots/${spot.id}`} key={spot.id}>
-                        <div>
-                            <img src={spot.previewImage} />
+            <h1>Welcome</h1>
+            <div className='card-list-container'>
+            {
+                spots.map((spot, idx) => (
+                    <div className='card-container'
+                        key={`${idx}-${spot.id}`}
+                        onClick={(e)=> gotToSpotDetail(e, spot)}>
+                        <SpotCard spot={spot} />
                         </div>
-                        <div>
-                            <div>
-                                {spot.city}, {spot.state}
-                            </div>
-                            <div>
-                                <div>
-                                    <span>{parseFloat(spot.avgRating || 0).toFixed(1)}</span>
-                                </div>
-                            </div>
-                            <div>
-                                ${spot.price} <span>/ night</span>
-                            </div>
-                        </div>
-                        <div>{spot.name}</div>
-                    </Link>
-                );
-            })}
+                ))
+            }
+            </div>
         </div>
     );
 }
