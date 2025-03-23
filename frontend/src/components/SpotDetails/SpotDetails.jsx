@@ -8,7 +8,7 @@ function SpotDetails() {
     const { spotId } = useParams();
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(true)
-    const spot = useSelector(state => state.spotsReducer.currentSpot);
+    const spot = useSelector(state => state.spots.currentSpot);
    
 
 
