@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import './SpotForm.css';
-import { createNewSpotThunk } from "../../store/spots";
+import { createNewSpotThunk, spotsThunk } from "../../store/spots";
 
 function SpotForm() {
 
@@ -62,28 +62,40 @@ function SpotForm() {
 
     //FUNCTION TO HANDLE SUBMIT
 
-    const handleSubmit =  (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const spotData = {
-            country,
-            address,
-            city,
-            state,
-            description,
-            name,
-            price,
-            previewImage,
-            imageUrl1,
-            imageUrl2,
-            imageUrl3,
-            imageUrl4
-        }
-        const res = dispatch(createNewSpotThunk(spotData));
-        if (res.errors) {
-            setErrors(res.errors);
-        } else {
-            navigate(`/spots/${res.id}`)
+
+       const spotData = {
+           address,
+           city,
+           state,
+           country,
+           lat: 1,
+           lng: 2,
+           name,
+           description,
+           price: parseFloat(price),
+           previewImage,
+           imageUrl1,
+           imageUrl2,
+           imageUrl3,
+           imageUrl4
+       };
+        try {
+            const res = await dispatch(createNewSpotThunk(spotData));
+            if (!res.errors) {
+                await dispatch(spotsThunk());
+
+                navigate(`/spots/${res.id}`)
+            } else {
+                setErrors(res.errors);
+            }
+
+
+
+        } catch (error) {
+            setErrors({ submit: 'Failed to create spot' });
         }
     }
 
@@ -184,8 +196,6 @@ function SpotForm() {
                         value={price}
                         onChange={e => setPrice(e.target.value)}
                         placeholder="Price per night (USD)"
-                        min="0"
-                        step="0.01"
                     />
                     {errors.price && <p className="error">{errors.price}</p>}
                 </div>

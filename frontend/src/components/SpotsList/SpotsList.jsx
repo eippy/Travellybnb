@@ -10,7 +10,7 @@ function SpotsList() {
     const navigate = useNavigate();
 
     const [isLoaded, setIsLoaded] = useState(false)
-    const spots = useSelector((state) => state.spotsReducer.allSpots)
+    const spots = useSelector(state => state.spots.allSpots)
     useEffect(() => {
         
         const getSpots = async () => {
@@ -24,6 +24,7 @@ function SpotsList() {
 
 
     }, [isLoaded, dispatch])
+
 
     const gotToSpotDetail = (e, spot) => {
         e.preventDefault();

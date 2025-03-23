@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { FaUserCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
@@ -54,6 +55,9 @@ function ProfileButton({ user }) {
                             {user.firstName} {user.lastName}
                         </li>
                         <li>{user.email}</li>
+                        <li className="menu-item">
+                            <Link to="/spots/current">Manage Spots</Link>
+                        </li>
                         <li>
                             <button onClick={logout}>Log Out</button>
                         </li>
