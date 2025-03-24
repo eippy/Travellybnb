@@ -1,3 +1,71 @@
-.hidden{
-    visibility: hidden;
+.profile-button-container {
+    position: relative;
+}
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 5px 5px 12px;
+    border: 1px solid #dddddd;
+    border-radius: 21px;
+    cursor: pointer;
+    background: white;
+}
+
+.profile-button svg:first-child {
+    font-size: 16px;
+    color: #222222;
+}
+
+.profile-button svg:last-child {
+    font-size: 28px;
+    color: #222222;
+}
+
+.profile-dropdown {
+    position: absolute;
+    right: 0;
+    background: white;
+    border: 1px solid #DDDDDD;
+    border-radius: 0; 
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+    min-width: 240px;
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+.profile-dropdown.hidden {
+    display: none;
+}
+
+.profile-dropdown li {
+    padding: 12px 16px;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.profile-dropdown a,
+.profile-dropdown button {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #222222;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.profile-dropdown button.logout-button {
+    background-color: #666666;
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 4px;
+    margin-top: 8px;
 }

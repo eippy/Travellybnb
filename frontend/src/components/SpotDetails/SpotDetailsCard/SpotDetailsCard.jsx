@@ -3,6 +3,9 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import './SpotDetailsCard.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector } from 'react-redux';
+import OpenModalButton from '../../OpenModalButton/OpenModalButton';
+import ReviewFormModal from '../ReviewFormModal/ReviewFormModal';
+import DeleteReviewModal from '../../DeleteReviewModal/DeleteReviewModal';
 
 function SpotDetailsCard({ spot }) {
 
@@ -46,7 +49,8 @@ function SpotDetailsCard({ spot }) {
     const reviewText = reviewCount === 1 ? "Review" : "Reviews"
 
     const loggedUserNotOwner = spot.Owner && currentUser && currentUser.id !== spot.Owner.id;
-
+    const reviewExists = sortedReviews.find(review => review.userId === currentUser?.id) !== undefined
+    const showReviewButton = loggedUserNotOwner && !reviewExists
 
     return (
         <div className="spot-details-container">
@@ -74,6 +78,7 @@ function SpotDetailsCard({ spot }) {
 
                 <div className="booking-card">
                     <div className="price-info">
+                        <div className="price-container">
                         <span className="price">{`$${spot.price}`}</span>
                         <span className="per-night"> night</span>
                     </div>
@@ -86,6 +91,7 @@ function SpotDetailsCard({ spot }) {
                                 <span className="review-count">{`${reviewCount} ${reviewText}`}</span>
                             </>
                         )}
+                        </div>
                     </div>
                     <button className="reserve-button" onClick={reserveClick}>
                         Reserve
@@ -103,7 +109,13 @@ function SpotDetailsCard({ spot }) {
                         </>
                     )}
                 </h2>
-
+                {showReviewButton && (
+                    <OpenModalButton
+                        buttonText="Post Your Review"
+                        modalComponent={<ReviewFormModal spotId={spot.id} />}
+                        className="post-review-button"
+                    />
+                )}
                 {reviewCount === 0 && loggedUserNotOwner ? (
                     <p className="no-reviews">Be the first to post a review!</p>
                 ) : (
@@ -113,6 +125,13 @@ function SpotDetailsCard({ spot }) {
                                 <h3 className="reviewer-name">{review.User?.firstName}</h3>
                                 <div className="review-date">{formattedDate(review)}</div>
                                 <p className="review-text">{review.review}</p>
+                                {currentUser && currentUser.id === review.userId && (
+                                    <OpenModalButton
+                                        buttonText="Delete"
+                                        modalComponent={<DeleteReviewModal reviewId={review.id} />}
+                                        className="delete-review-button"
+                                    />
+                                )}
                             </div>
                         ))}
                     </div>

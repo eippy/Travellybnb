@@ -19,7 +19,7 @@ function SpotDetails() {
     useEffect(() => {
         dispatch(getSpotReviewsThunk(spotId))
         setIsLoaded(true);
-    });
+    }, [dispatch, spotId]);
 
     if (!isLoaded) {
         return <div>Loading...</div>;
