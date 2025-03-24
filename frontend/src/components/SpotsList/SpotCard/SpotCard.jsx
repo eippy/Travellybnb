@@ -1,7 +1,15 @@
-
-import './spotCard.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import './spotCard.css';
 
 const SpotCard = ({ spot }) => {
+    const rating = () => {
+        if (!spot.avgRating) {
+            return 'New';
+        }
+        return parseFloat(spot.avgRating).toFixed(1);
+    };
+
     return (
         <div className="card-container">
             <div className="spotImage-container">
@@ -10,7 +18,7 @@ const SpotCard = ({ spot }) => {
             <div className="info-container">
                 <div className="location-rating-container spot-text">
                     <span>{`${spot.city}, ${spot.state}`}</span>
-                    <span>{`${parseFloat(spot.avgRating).toFixed(1)}` }</span>
+                    <span><FontAwesomeIcon icon={faStar}/>{rating()}</span>
                 </div>
                 <div className="name-container">
                     <p className="spot-text">{spot.name}</p>
@@ -21,5 +29,5 @@ const SpotCard = ({ spot }) => {
             </div>
         </div>
     );
-}
+};
 export default SpotCard;
