@@ -168,11 +168,12 @@ router.get('/:spotId', async (req, res) => {
 
 // Create a spot
 router.post('/', validateCreateSpot, async (req, res) => {
-    const { address, city, state, country, lat, lng, name, description, price } = req.body;
+    const { address, city, state, country, lat, lng, name, description, price, previewImage, imageUrl1, imageUrl2, imageUrl3, imageUrl4} = req.body;
 
     const ownerId = req.user?.id || 1;
 
     const newSpot = await Spot.create({
+        ownerId,
         address,
         city,
         state,
@@ -182,8 +183,33 @@ router.post('/', validateCreateSpot, async (req, res) => {
         name,
         description,
         price,
-        ownerId,
     });
+
+    const spotId = newSpot.id
+    let previewImageUrl = null;
+    if (previewImage) {
+        const newSpotImage = await SpotImage.create({
+            spotId,
+            url: previewImage,
+            preview: true
+        })
+
+        previewImageUrl = newSpotImage.url;
+    }
+
+    const addedImageUrls = [imageUrl1, imageUrl2, imageUrl3, imageUrl4].filter(url => url)
+
+    if (addedImageUrls.length > 0) {
+        const imagePromises = additionalImageUrls.map(url =>
+            SpotImage.create({
+                spotId,
+                url,
+                preview: false,
+            }),
+        );
+        await Promise.all(imagePromises);
+    }
+
 
     const formattedCreatedAt = new Date(newSpot.createdAt)
         .toISOString()
@@ -194,21 +220,23 @@ router.post('/', validateCreateSpot, async (req, res) => {
         .replace('T', ' ')
         .slice(0, 19);
 
-    res.status(201).json({
+    
+    const formattedRes ={
         id: newSpot.id,
         ownerId: newSpot.ownerId,
         address: newSpot.address,
         city: newSpot.city,
         state: newSpot.state,
         country: newSpot.country,
-        lat: newSpot.lat,
-        lng: newSpot.lng,
         name: newSpot.name,
         description: newSpot.description,
         price: newSpot.price,
+        previewImage: previewImageUrl,
         createdAt: formattedCreatedAt,
         updatedAt: formattedUpdatedAt,
-    });
+    };
+
+    return res.status(201).json(formattedRes)
 });
 
 // Get all Spots
