@@ -1,7 +1,7 @@
 import { useModal } from '../../../context/Modal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createReviewThunk } from '../../../store/review';
+import { createReviewThunk, getSpotReviewsThunk } from '../../../store/review';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';

@@ -1,0 +1,69 @@
+.manage-spots-container {
+    max-width: 1300px;
+    margin: 90px auto 0;
+    padding: 0 20px;
+}
+
+.manage-spots-container h1 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+
+.manage-spots-container .create-spot-button {
+    display: inline-block;
+    background-color: #FF385C; 
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.manage-spots-container .create-spot-button:hover {
+    background-color: #E31C5F; 
+}
+
+
+.spots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+
+.spot-tile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+
+
+
+
+.update-button, 
+.delete-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #FF385C; 
+    color: white;
+}
+
+.update-button:hover,
+.delete-button:hover {
+    background-color: #E31C5F; 
+}
+.manage-spots-container > div > p {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
