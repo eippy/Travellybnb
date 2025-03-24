@@ -19,8 +19,8 @@ module.exports = {
                     country: 'United States',
                     lat: 40.7128,
                     lng: -74.006,
-                    name: 'Spot 1',
-                    description: 'This is a great spot!',
+                    name: 'Luxury Penthouse',
+                    description: '5 Bedroom Penthouse with a view of the city skyline. PARTIES ARE NOT ALLOWED! ',
                     price: 100,
                 },
                 {
@@ -31,8 +31,9 @@ module.exports = {
                     country: 'United States',
                     lat: 34.0522,
                     lng: -118.2437,
-                    name: 'Spot 2',
-                    description: 'This is also a great spot!',
+                    name: 'Downtown Loft',
+                    description:
+                        'Fully furnished/ heated pool/ community center / willing to accept parties upon request. Cleaning fee will be required if anything breaks',
                     price: 130,
                 },
                 {
@@ -43,8 +44,9 @@ module.exports = {
                     country: 'United States',
                     lat: 10.7128,
                     lng: -60.006,
-                    name: 'Spot 3',
-                    description: 'This MIGHT be the best spot!',
+                    name: 'Private Loft',
+                    description:
+                        'We have six individual private rooms and baths with a large common area, full kitchen and art gallery.Centrally located Chicago is a go- to district with a lively night scene, and a wide variety of restaurants, bars and clubs.',
                     price: 200,
                 },
             ],
