@@ -32,7 +32,8 @@ export const getSpotReviewsThunk = (spotId) => async (dispatch) => {
             throw res;
         }
     } catch (error) {
-        return error; 
+        const errors = await error.json();
+        return errors; 
     }
 }
 
@@ -52,7 +53,8 @@ export const createReviewThunk = (spotId, reviewData) => async (dispatch) => {
             throw res;
         }
     } catch (error) {
-        throw error;
+        const errors = await error.json();
+        return errors; 
     }
 }
 
@@ -69,7 +71,8 @@ export const deleteReviewThunk = (reviewId) => async (dispatch) => {
             throw res;
         }
     } catch (error) {
-        throw error;
+        const errors = await error.json();
+        return errors; 
     }
 }
 // REDUCERS

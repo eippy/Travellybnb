@@ -36,7 +36,6 @@ function SpotsList() {
     }
     return (
         <div>
-            <h1>Welcome</h1>
             <div className='card-list-container'>
             {
                 spots.map((spot, idx) => (

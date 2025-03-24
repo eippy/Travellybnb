@@ -98,7 +98,7 @@ function UpdateSpotForm() {
 
             <form onSubmit={handleSubmit}>
                 <div className="form-section">
-                    <h3>Where's your place located?</h3>
+                    <h3>Where&apos;s your place located?</h3>
                     <p>Guests will only get your exact address once they booked a reservation.</p>
 
                     <div className="form-group">
@@ -164,8 +164,8 @@ function UpdateSpotForm() {
                 <div className="form-section">
                     <h3>Create a title for your spot</h3>
                     <p>
-                        Catch guests' attention with a spot title that highlights what makes your
-                        place special.
+                        Catch guests&apos; attention with a spot title that highlights what makes
+                        your place special.
                     </p>
 
                     <input

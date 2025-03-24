@@ -78,6 +78,7 @@ function SpotDetailsCard({ spot }) {
 
                 <div className="booking-card">
                     <div className="price-info">
+                        <div className="price-container">
                         <span className="price">{`$${spot.price}`}</span>
                         <span className="per-night"> night</span>
                     </div>
@@ -90,6 +91,7 @@ function SpotDetailsCard({ spot }) {
                                 <span className="review-count">{`${reviewCount} ${reviewText}`}</span>
                             </>
                         )}
+                        </div>
                     </div>
                     <button className="reserve-button" onClick={reserveClick}>
                         Reserve

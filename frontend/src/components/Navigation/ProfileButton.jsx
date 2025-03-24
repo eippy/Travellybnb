@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaBars, FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
@@ -43,23 +43,21 @@ function ProfileButton({ user }) {
     const ulClassName = 'profile-dropdown' + (showMenu ? '' : ' hidden');
 
     return (
-        <>
-            <button onClick={toggleMenu}>
+        <div className="profile-button-container">
+            <button onClick={toggleMenu} className="profile-button">
+                <FaBars />
                 <FaUserCircle />
             </button>
             <ul className={ulClassName} ref={ulRef}>
                 {user ? (
                     <>
                         <li>{user.username}</li>
-                        <li>
-                            {user.firstName} {user.lastName}
-                        </li>
                         <li>{user.email}</li>
-                        <li className="menu-item">
+                        <li>
                             <Link to="/spots/current">Manage Spots</Link>
                         </li>
                         <li>
-                            <button onClick={logout}>Log Out</button>
+                            <button className="logout-button" onClick={logout}>Log Out</button>
                         </li>
                     </>
                 ) : (
@@ -77,7 +75,7 @@ function ProfileButton({ user }) {
                     </>
                 )}
             </ul>
-        </>
+        </div>
     );
 }
 

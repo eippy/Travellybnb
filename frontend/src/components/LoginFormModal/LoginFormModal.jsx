@@ -24,8 +24,26 @@ function LoginFormModal() {
             });
     };
 
+     const handleDemoLogin = e => {
+         e.preventDefault();
+         return dispatch(
+             sessionActions.login({
+                 credential: 'demo@user.io',
+                 password: 'password',
+             }),
+         )
+             .then(closeModal)
+             .catch(async res => {
+                 const data = await res.json();
+                 if (data && data.errors) {
+                     setErrors(data.errors);
+                 }
+             });
+     };
+
+
     return (
-        <>
+        <div className="login-form-container">
             <h1>Log In</h1>
             <form onSubmit={handleSubmit}>
                 <label>
@@ -36,9 +54,9 @@ function LoginFormModal() {
                         onChange={e => setCredential(e.target.value)}
                         required
                     />
-                </label>
                 <label>
                     Password
+                </label>
                     <input
                         type="password"
                         value={password}
@@ -46,10 +64,15 @@ function LoginFormModal() {
                         required
                     />
                 </label>
-                {errors.credential && <p>{errors.credential}</p>}
+                {errors.credential && (
+                    <p className="error">{errors.credential}</p>
+                )}
                 <button type="submit">Log In</button>
+                <button type="button" onClick={handleDemoLogin} className="demo-link">
+                    Demo User
+                </button>
             </form>
-        </>
+        </div>
     );
 }
 

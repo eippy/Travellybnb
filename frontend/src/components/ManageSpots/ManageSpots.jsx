@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { spotsThunk, deleteSpotThunk } from '../../store/spots';
+import { spotsThunk } from '../../store/spots';
 import SpotCard from '../SpotsList/SpotCard/SpotCard';
 import OpenModalButton from '../OpenModalButton/OpenModalButton';
 import DeleteSpotModal from '../DeleteSpotModal/DeleteSpotModal';

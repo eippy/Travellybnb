@@ -1,0 +1,74 @@
+#modal-content {
+    border-radius: 20px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+}
+
+.login-form-container {
+    background-color: white;
+    border-radius: 30px;
+    padding: 24px;
+    width: 400px;
+}
+
+.login-form-container h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #F7F7F7;
+    box-sizing: border-box;
+}
+
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #FF385C;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 8px 0;
+}
+
+.demo-link {
+    color: #00525E;
+    text-decoration: underline;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    margin-top: 8px;
+    padding: 0;
+    border: none;
+    background: none;
+    width: 100%;
+}
+
+.demo-link:hover {
+    color: #004048;
+}
+.error {
+    color: #FF385C;
+    font-size: 12px;
+    text-align: center;
+}
