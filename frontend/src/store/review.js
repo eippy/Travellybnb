@@ -2,6 +2,8 @@ import { csrfFetch } from "./csrf";
 
 // ACTION TYPES
 const GET_SPOT_REVIEWS = 'reviews/getAllReviews'
+const ADD_REVIEW = 'reviews/addReview'
+const DELETE_REVIEW = 'reviews/deleteReview'
 
 // ACTION CREATORS
 const getSpotReviews = (reviews) => ({
@@ -9,6 +11,15 @@ const getSpotReviews = (reviews) => ({
     payload: reviews
 });
 
+const addReview = (review) => ({
+    type: ADD_REVIEW,
+    payload: review
+});
+
+export const deleteReview = (reviewId) => ({
+    type: DELETE_REVIEW,
+    payload: reviewId
+})
 // THUNKS
 export const getSpotReviewsThunk = (spotId) => async (dispatch) => {
     try {
@@ -25,6 +36,42 @@ export const getSpotReviewsThunk = (spotId) => async (dispatch) => {
     }
 }
 
+export const createReviewThunk = (spotId, reviewData) => async (dispatch) => {
+    try {
+        const res = await csrfFetch(`/api/spots/${spotId}/reviews`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reviewData)
+        })
+        if (res.ok) {
+            const newReview = await res.json();
+            dispatch(addReview(newReview))
+        } else {
+            throw res;
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const deleteReviewThunk = (reviewId) => async (dispatch) => {
+    try {
+        const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+            method: 'DELETE'
+        })
+
+        if (res.ok) {
+            dispatch(deleteReview(reviewId))
+            return true;
+        } else {
+            throw res;
+        }
+    } catch (error) {
+        throw error;
+    }
+}
 // REDUCERS
 const initialState = {
     allReviews: [],
@@ -46,6 +93,27 @@ const reviewsReducer = (state = initialState, action) => {
             newState.byId = newByIdGetAllReviews;
 
             return newState;
+        }
+        case ADD_REVIEW: {
+            newState = { ...state };
+            newState.allReviews = [action.payload, ...state.allReviews];
+
+            newState.byId = {
+                ...newState.byId,
+                [action.payload.id]: action.payload
+            }
+            return newState
+        }
+        case DELETE_REVIEW: {
+            newState = { ...state };
+            newState.allReviews = state.allReviews.filter(
+                review => review.id !== action.payload
+            )
+            const newById = { ...state.byId }
+            delete newById[action.payload]
+            newState.byId = newById
+
+            return newState
         }
         default:
             return state;
