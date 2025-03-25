@@ -19,19 +19,16 @@ function DeleteReviewModal({ reviewId }) {
     };
 
     return (
-        <>
+        <div className="delete-review-modal">
             <h1>Confirm Delete</h1>
             <p>Are you sure you want to delete this review?</p>
-
-            <div className="delete-review-buttons">
                 <button onClick={handleDelete} className="delete-button">
                     Yes (Delete Review)
                 </button>
                 <button onClick={closeModal} className="keep-button">
                     No (Keep Review)
                 </button>
-            </div>
-        </>
+        </div>
     );
 }
 

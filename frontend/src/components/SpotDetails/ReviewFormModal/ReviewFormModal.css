@@ -1,39 +1,16 @@
-.reviewModal {
-    width: 100%;
-    max-width: 450px;
-    padding: 20px;
-    background-color: white;
+#modal-content {
     border-radius: 12px;
-}
-
-h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #222;
+    padding: 50px;
+    padding-left: 20px;
+    padding-top: 5px;
 }
 
 
-form {
+
+.stars-input {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    justify-content: center;
 }
-
-
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-size: 14px;
-    font-family: inherit;
-    resize: vertical;
-    min-height: 100px;
-}
-
-
-
 
 .stars-input span {
     margin-left: 8px;
@@ -52,4 +29,13 @@ textarea {
 .server-error {
     text-align: center;
     margin-bottom: 12px;
+}
+
+.submit-review-button {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.submit-review-button:hover {
+    background-color:  #636363;
 }
