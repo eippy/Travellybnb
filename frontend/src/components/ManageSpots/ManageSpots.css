@@ -24,7 +24,7 @@
     margin-bottom: 20px;
 }
 
-.manage-spots-container .create-spot-button:hover {
+.create-spot-button:hover {
     background-color: #E31C5F; 
 }
 
@@ -43,24 +43,35 @@
     margin-bottom: 24px;
 }
 
+.button-group {
+    display: flex;
+    gap: 10px;
+}
 
 
 
-
-.update-button, 
-.delete-button {
-    padding: 6px 12px;
+.update-button {
+    padding: 5px 10px;
     border: none;
-    border-radius: 6px;
-    font-size: 14px;
+    border-radius: 4px;
     cursor: pointer;
-    background-color: #FF385C; 
+    font-size: 14px;
+    background-color: #FF385C;
+    color: white
+}
+.delete-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: #767676;
     color: white;
 }
 
 .update-button:hover,
 .delete-button:hover {
-    background-color: #E31C5F; 
+    background-color: #636363;
 }
 .manage-spots-container > div > p {
     margin-bottom: 16px;

@@ -58,7 +58,7 @@ function ManageSpots() {
                                     <SpotCard spot={spot} />
                                 </div>
 
-                                <div>
+                                <div className="button-group">
                                     <button
                                         className="update-button"
                                         onClick={e => {
