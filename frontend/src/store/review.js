@@ -1,85 +1,96 @@
-import { csrfFetch } from "./csrf";
+import { csrfFetch } from './csrf';
+
 
 // ACTION TYPES
-const GET_SPOT_REVIEWS = 'reviews/getAllReviews'
-const ADD_REVIEW = 'reviews/addReview'
-const DELETE_REVIEW = 'reviews/deleteReview'
+const GET_SPOT_REVIEWS = 'reviews/getAllReviews';
+const ADD_REVIEW = 'reviews/addReview';
+const DELETE_REVIEW = 'reviews/deleteReview';
 
 // ACTION CREATORS
-const getSpotReviews = (reviews) => ({
+const getSpotReviews = reviews => ({
     type: GET_SPOT_REVIEWS,
-    payload: reviews
+    payload: reviews,
 });
 
-const addReview = (review) => ({
+const addReview = review => ({
     type: ADD_REVIEW,
-    payload: review
+    payload: review,
 });
 
-export const deleteReview = (reviewId) => ({
+export const deleteReview = reviewId => ({
     type: DELETE_REVIEW,
-    payload: reviewId
-})
+    payload: reviewId,
+});
 // THUNKS
-export const getSpotReviewsThunk = (spotId) => async (dispatch) => {
+export const getSpotReviewsThunk = spotId => async dispatch => {
     try {
-        const res = await csrfFetch(`/api/spots/${spotId}/reviews`)
+        const res = await csrfFetch(`/api/spots/${spotId}/reviews`);
 
         if (res.ok) {
             const data = await res.json();
-            dispatch(getSpotReviews(data))
+            dispatch(getSpotReviews(data));
         } else {
             throw res;
         }
     } catch (error) {
         const errors = await error.json();
-        return errors; 
+        return errors;
     }
-}
+};
 
-export const createReviewThunk = (spotId, reviewData) => async (dispatch) => {
+export const createReviewThunk = (spotId, reviewData) => async (dispatch, getState) => {
     try {
         const res = await csrfFetch(`/api/spots/${spotId}/reviews`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(reviewData)
-        })
+            body: JSON.stringify(reviewData),
+        });
         if (res.ok) {
             const newReview = await res.json();
-            dispatch(addReview(newReview))
+            const { user } = getState().session;
+            const reviewWithUser = {
+                ...newReview,
+                User: {
+                    id: user.id,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                },
+            };
+
+            dispatch(addReview(reviewWithUser));
         } else {
             throw res;
         }
     } catch (error) {
         const errors = await error.json();
-        return errors; 
+        return errors;
     }
-}
+};
 
-export const deleteReviewThunk = (reviewId) => async (dispatch) => {
+export const deleteReviewThunk = reviewId => async dispatch => {
     try {
         const res = await csrfFetch(`/api/reviews/${reviewId}`, {
-            method: 'DELETE'
-        })
+            method: 'DELETE',
+        });
 
         if (res.ok) {
-            dispatch(deleteReview(reviewId))
+            dispatch(deleteReview(reviewId));
             return true;
         } else {
             throw res;
         }
     } catch (error) {
         const errors = await error.json();
-        return errors; 
+        return errors;
     }
-}
+};
 // REDUCERS
 const initialState = {
     allReviews: [],
-    byId: {}
-}
+    byId: {},
+};
 
 const reviewsReducer = (state = initialState, action) => {
     let newState;
@@ -103,27 +114,22 @@ const reviewsReducer = (state = initialState, action) => {
 
             newState.byId = {
                 ...newState.byId,
-                [action.payload.id]: action.payload
-            }
-            return newState
+                [action.payload.id]: action.payload,
+            };
+            return newState;
         }
         case DELETE_REVIEW: {
             newState = { ...state };
-            newState.allReviews = state.allReviews.filter(
-                review => review.id !== action.payload
-            )
-            const newById = { ...state.byId }
-            delete newById[action.payload]
-            newState.byId = newById
+            newState.allReviews = state.allReviews.filter(review => review.id !== action.payload);
+            const newById = { ...state.byId };
+            delete newById[action.payload];
+            newState.byId = newById;
 
-            return newState
+            return newState;
         }
         default:
             return state;
     }
-}
-
-
-
+};
 
 export default reviewsReducer;

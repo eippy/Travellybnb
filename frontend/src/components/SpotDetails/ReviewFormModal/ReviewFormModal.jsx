@@ -31,7 +31,7 @@ function ReviewFormModal({ spotId }) {
             }
         } catch (res) {
             const data = await res.json();
-             if (data && data.message) {
+            if (data && data.message) {
                 setServerError(data.message);
             } else if (data && data.errors) {
                 setErrors(data.errors);
