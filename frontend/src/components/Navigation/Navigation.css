@@ -41,7 +41,7 @@
 
 .create-spot-button {
     text-decoration: none;
-    color: #222222;
+    color: rgb(117, 117, 202);
     padding: 12px 16px;
     font-size: 14px;
     white-space: nowrap;
@@ -49,5 +49,5 @@
 
 .create-spot-button:hover {
     background-color: #f7f7f7;
-    border-radius: 21px;
+    border-radius: 12px;
 }
