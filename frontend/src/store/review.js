@@ -60,6 +60,7 @@ export const createReviewThunk = (spotId, reviewData) => async (dispatch, getSta
             };
 
             dispatch(addReview(reviewWithUser));
+            return reviewWithUser;
         } else {
             throw res;
         }

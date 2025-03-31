@@ -35,7 +35,7 @@ function SpotsList() {
         return <div>Loading...</div>
     }
     return (
-        <div>
+        <div className="main-content">
             <div className='card-list-container'>
             {
                 spots.map((spot, idx) => (
