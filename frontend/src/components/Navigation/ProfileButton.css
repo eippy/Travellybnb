@@ -59,11 +59,8 @@ li {
     text-align: left;
     cursor: pointer;
 }
-li:hover {
-    background-color: lightgray;
-}
-ul {
-    list-style-type: none;
+.manage-spot-link:hover{
+    background-color: lightgrey;
 }
 .logout-button {
     background-color: #666666;
@@ -77,4 +74,7 @@ ul {
 }
 .logout-button:hover{
     background-color: rgb(86, 86, 86);
+}
+.modal-item:hover{
+    background-color: lightgrey;
 }

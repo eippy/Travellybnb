@@ -1,6 +1,7 @@
 .spot-details-container {
     max-width: 1000px;
     margin: 90px auto 0;
+    user-select: none;
 }
 
 .spot-details-container h1 {

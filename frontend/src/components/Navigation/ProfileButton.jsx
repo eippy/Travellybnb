@@ -52,13 +52,13 @@ function ProfileButton({ user }) {
                 {user ? (
                     <>
                         <div className="list-div-element">
-                            <li>{user.username}</li>
+                            <li>Hello, {user.username}</li>
                         </div>
                         <div className="list-div-element">
                             <li>{user.email}</li>
                         </div>
                         <div className="list-div-element">
-                            <li>
+                            <li className="manage-spot-link">
                                 <Link to="/spots/current">Manage Spots</Link>
                             </li>
                         </div>

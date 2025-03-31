@@ -116,7 +116,7 @@ function SpotForm() {
                             onChange={e => setCountry(e.target.value)}
                             placeholder="Country"
                         />
-                        {errors.country && <p className="error">{errors.country}</p>}
+                        {errors.country && <span className="spot-form-error">{errors.country}</span>}
                     </div>
 
                     <div className="form-group">
@@ -127,7 +127,7 @@ function SpotForm() {
                             onChange={e => setAddress(e.target.value)}
                             placeholder="Address"
                         />
-                        {errors.address && <p className="error">{errors.address}</p>}
+                        {errors.address && <span className="spot-form-error">{errors.address}</span>}
                     </div>
 
                     <div className="form-group">
@@ -138,7 +138,7 @@ function SpotForm() {
                             onChange={e => setCity(e.target.value)}
                             placeholder="City"
                         />
-                        {errors.city && <p className="error">{errors.city}</p>}
+                        {errors.city && <span className="spot-form-error">{errors.city}</span>}
                     </div>
 
                     <div className="form-group">
@@ -149,7 +149,7 @@ function SpotForm() {
                             onChange={e => setState(e.target.value)}
                             placeholder="State"
                         />
-                        {errors.state && <p className="error">{errors.state}</p>}
+                        {errors.state && <span className="spot-form-error">{errors.state}</span>}
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@ function SpotForm() {
                         onChange={e => setDescription(e.target.value)}
                         placeholder="Please write at least 30 characters"
                     />
-                    {errors.description && <p className="error">{errors.description}</p>}
+                    {errors.description && <span className="spot-form-error">{errors.description}</span>}
                 </div>
 
                 <div className="form-section">
@@ -181,7 +181,7 @@ function SpotForm() {
                         onChange={e => setName(e.target.value)}
                         placeholder="Name of your spot"
                     />
-                    {errors.name && <p className="error">{errors.name}</p>}
+                    {errors.name && <span className="spot-form-error">{errors.name}</span>}
                 </div>
 
                 <div className="form-section">
@@ -197,7 +197,7 @@ function SpotForm() {
                         onChange={e => setPrice(e.target.value)}
                         placeholder="Price per night (USD)"
                     />
-                    {errors.price && <p className="error">{errors.price}</p>}
+                    {errors.price && <span className="spot-form-error">{errors.price}</span>}
                 </div>
 
                 <div className="form-section">
@@ -211,7 +211,7 @@ function SpotForm() {
                             onChange={e => setPreviewImage(e.target.value)}
                             placeholder="Preview Image URL"
                         />
-                        {errors.previewImage && <p className="error">{errors.previewImage}</p>}
+                        {errors.previewImage && <span className="spot-form-error">{errors.previewImage}</span>}
                     </div>
 
                     <div className="form-group">
@@ -251,7 +251,7 @@ function SpotForm() {
                     </div>
                 </div>
 
-                <button type="submit">Create Spot</button>
+                <button type="submit" className="spot-form-button">Create Spot</button>
             </form>
         </div>
     );
