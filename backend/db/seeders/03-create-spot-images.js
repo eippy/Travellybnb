@@ -13,58 +13,77 @@ module.exports = {
             [
                 {
                     spotId: 1,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/newyork1.jpg',
                     preview: true,
                 },
                 {
                     spotId: 1,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/newyork2.jpg',
                     preview: false,
                 },
                 {
                     spotId: 1,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/newyork3.jpg',
                     preview: false,
                 },
                 {
                     spotId: 1,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/newyork4.jpeg',
                     preview: false,
                 },
                 {
                     spotId: 1,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/newyork5.jpeg',
                     preview: false,
                 },
                 {
                     spotId: 2,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/losangles1.jpg',
                     preview: true,
                 },
                 {
                     spotId: 2,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/losangles2.jpg',
                     preview: false,
                 },
                 {
                     spotId: 2,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/losangles3.jpg',
                     preview: false,
                 },
-
+                {
+                    spotId: 2,
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/losangeles4.jpeg',
+                    preview: false,
+                },
+                {
+                    spotId: 2,
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/losangeles5.jpeg',
+                    preview: false,
+                },
                 {
                     spotId: 3,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/chicago1111.webp',
                     preview: true,
                 },
                 {
                     spotId: 3,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/exrta1.jpeg',
                     preview: false,
                 },
                 {
                     spotId: 3,
-                    url: 'https://picsum.photos/300/200',
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/chiago2.jpg',
+                    preview: false,
+                },
+                {
+                    spotId: 3,
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/chicago4.jpeg',
+                    preview: false,
+                },
+                {
+                    spotId: 3,
+                    url: 'https://travellyimages.s3.us-east-2.amazonaws.com/extra.jpeg',
                     preview: false,
                 },
             ],
