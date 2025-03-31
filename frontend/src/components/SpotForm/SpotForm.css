@@ -4,6 +4,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
+    user-select: none;
 }
 
 .form-section {
@@ -25,8 +26,6 @@
     margin-bottom: 16px;
 }
 
-input[type="text"],
-input[type="number"],
 textarea {
     width: 100%;
     padding: 12px;
@@ -39,13 +38,13 @@ textarea {
     min-height: 100px;
 }
 
-.error {
+.create-spot-container .spot-form-error {
     color: #FF385C;
     font-size: 12px;
     margin-top: 4px;
 }
 
-button[type="submit"] {
+.spot-form-button {
     width: 100%;
     padding: 14px;
     background-color: #FF385C;
@@ -54,4 +53,7 @@ button[type="submit"] {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+}
+.spot-form-button:hover {
+    background-color: #ea4e6b;
 }
