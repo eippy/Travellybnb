@@ -4,6 +4,24 @@
     padding: 24px;
     width: 400px;
 }
+.sign-up-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #FF385C;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 8px 0;
+}
+.sign-up-button:hover {
+    background-color: #e82d4f;
 
-
-
+}
+.error {
+    color: #FF385C;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}

@@ -6,7 +6,7 @@ import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
-import "./ProfileButton.css"
+import './ProfileButton.css';
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
@@ -51,14 +51,22 @@ function ProfileButton({ user }) {
             <ul className={ulClassName} ref={ulRef}>
                 {user ? (
                     <>
-                        <li>{user.username}</li>
-                        <li>{user.email}</li>
-                        <li>
-                            <Link to="/spots/current">Manage Spots</Link>
-                        </li>
-                        <li>
-                            <button className="logout-button" onClick={logout}>Log Out</button>
-                        </li>
+                        <div className="list-div-element">
+                            <li>Hello, {user.username}</li>
+                        </div>
+                        <div className="list-div-element">
+                            <li>{user.email}</li>
+                        </div>
+                        <div className="list-div-element">
+                            <li className="manage-spot-link">
+                                <Link to="/spots/current">Manage Spots</Link>
+                            </li>
+                        </div>
+                        <div className="logout-button-container">
+                            <button className="logout-button" onClick={logout}>
+                                Log Out
+                            </button>
+                        </div>
                     </>
                 ) : (
                     <>

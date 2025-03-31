@@ -38,7 +38,7 @@ input {
 }
 
 
-button[type="submit"] {
+.log-in-button {
     width: 100%;
     padding: 14px;
     background-color: #FF385C;
@@ -49,14 +49,16 @@ button[type="submit"] {
     cursor: pointer;
     margin: 8px 0;
 }
+.log-in-button:hover {
+    background-color: #e82d4f;
 
+}
 .demo-link {
     color: #00525E;
     text-decoration: underline;
     font-size: 14px;
     text-align: center;
     cursor: pointer;
-    display: block;
     margin-top: 8px;
     padding: 0;
     border: none;
@@ -69,6 +71,10 @@ button[type="submit"] {
 }
 .error {
     color: #FF385C;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
+}
+.log-in-button:disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed
 }

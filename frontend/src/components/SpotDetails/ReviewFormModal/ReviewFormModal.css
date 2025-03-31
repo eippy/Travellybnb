@@ -32,10 +32,19 @@
 }
 
 .submit-review-button {
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    padding: 14px;
+    background-color: #FF385C;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
 }
 .submit-review-button:hover {
     background-color:  #636363;
+}
+.submit-review-button:disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
 }

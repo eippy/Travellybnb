@@ -1,7 +1,7 @@
 .spot-details-container {
     max-width: 1000px;
     margin: 90px auto 0;
-    padding: 0 20px;
+    user-select: none;
 }
 
 .spot-details-container h1 {
@@ -22,9 +22,14 @@
     margin-bottom: 24px;
     height: 400px;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 10px;
 }
-
+.main-image {
+    border-radius: 10px;
+}
+.image-card {
+    border-radius: 10px;
+}
 .main-image {
     grid-column: 1;
     grid-row: 1;
@@ -127,6 +132,9 @@
     color: #222222;
 }
 
+.dot {
+    margin-left: 4px;
+}
 .review-count {
     margin-left: 5px;
 }

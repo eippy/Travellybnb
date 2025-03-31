@@ -24,7 +24,7 @@
     margin-bottom: 20px;
 }
 
-.create-spot-button:hover {
+.manage-spots-container .create-spot-button:hover {
     background-color: #E31C5F; 
 }
 
